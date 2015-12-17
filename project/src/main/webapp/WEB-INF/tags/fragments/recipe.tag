@@ -1,5 +1,7 @@
 <%@ tag body-content="empty" pageEncoding="UTF-8" %>
 
+<%@ taglib prefix="allo" uri="/WEB-INF/tld/replace.tld"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -26,6 +28,6 @@
                 </c:forEach>
             </ul>
         </c:if>
-        <p>${fn:escapeXml(recipe.text)}</p>
+        <p>${allo:replacement(recipe.text}</p>
     </div>
 </div>

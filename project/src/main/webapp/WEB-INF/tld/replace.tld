@@ -11,10 +11,10 @@
 
     <function>
         <!-- nom de la fonction -->
-        <name>remplacement</name>
+        <name>replacement</name>
         <!-- classe java contenant le code de la fonction -->
         <function-class>fr.cmm.tags.Functions</function-class>
         <!-- signature de la méthode *statique* dans la classe java -->
-        <function-signature>java.lang.String remplacement(java.lang.String)</function-signature>
+        <function-signature>java.lang.String replacement(java.lang.String)</function-signature>
     </function>
 </taglib>
