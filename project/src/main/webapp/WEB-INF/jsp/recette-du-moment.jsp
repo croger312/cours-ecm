@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <fragments:header />
+    <fragments:header url="/recette-du-moment" />
 
     <div class="container">
         <h1>Une recette de saison aléatoire</h1>

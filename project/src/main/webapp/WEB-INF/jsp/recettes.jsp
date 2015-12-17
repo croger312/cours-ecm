@@ -19,7 +19,7 @@
 </head>
 <body>
 
-    <fragments:header />
+    <fragments:header url="/recettes"/>
 
     <div class="container">
         <h1>Toutes nos recettes</h1>
