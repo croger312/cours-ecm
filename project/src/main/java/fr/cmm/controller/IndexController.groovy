@@ -20,11 +20,11 @@ public class IndexController {
     @Inject
     private RecipeService recipeService;
 
-    @RequestMapping({"/index", "/"})
+    @RequestMapping(["/index", "/"])
     public String index(ModelMap model) {
-        model.put("columns", randomColumns());
+        model.column = randomColumns()
 
-        return "index";
+        return "index"
     }
 
     @RequestMapping("/tags.json")
