@@ -1,6 +1,7 @@
 package fr.cmm.controller;
 
 import fr.cmm.controller.form.SearchForm;
+import fr.cmm.domain.Recipe;
 import fr.cmm.helper.Columns;
 import fr.cmm.helper.PageQuery;
 import fr.cmm.helper.Pagination;
@@ -74,7 +75,13 @@ public class IndexController {
 
     @RequestMapping("/recette/{id}")
     public String recette(@PathVariable("id") String id, ModelMap model) {
-        model.put("recipe", recipeService.findById(id));
+        Recipe recipe = recipeService.findById(id);
+
+        if (recipe == null) {
+            throw new ResourceNotFoundException();
+        }
+
+        model.put("recipe", recipe);
 
         return "recette";
     }
@@ -86,5 +93,10 @@ public class IndexController {
     public String mentionsLegales() {
         return "mentions-legales";
     }
+    @RequestMapping("/404")
+    public String notFound() { return "erreur"; }
+
+    @RequestMapping("/500")
+    public String error() { return "erreur"; }
 }
 

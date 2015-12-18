@@ -41,10 +41,17 @@ public class Pagination {
 
     public List<Integer> getPages() {
         List<Integer> l = new ArrayList<Integer>();
-        int a = getPageIndex();
-        while( a <= getPageCount() && l.size() <= pagination_size ) {
-            l.add(a);
-            a++;
+        getPageIndex();
+        int compteur = 0;
+        while( getPageIndex() <= getPageCount() && l.size() <= pagination_size-2 ) {
+            if (compteur == 0) {
+                l.add(getPageIndex());
+            }
+            else {
+                l.add(0, getPageIndex()-compteur);
+                l.add(getPageIndex()+compteur);
+            }
+            compteur++;
         }
         return l;
     }

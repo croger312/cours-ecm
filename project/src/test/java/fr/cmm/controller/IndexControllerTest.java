@@ -52,6 +52,12 @@ public class IndexControllerTest {
     }
 
     @Test
+    public void error() throws Exception {
+        mockMvc.perform(get("/500"))
+                .andExpect(view().name("erreur"));
+    }
+
+    @Test
     public void recette() throws Exception {
         String id = "56375619d4c603aa4eb412af";
 
@@ -61,5 +67,15 @@ public class IndexControllerTest {
                 .andExpect(status().is(200))
                 .andExpect(model().attributeExists("recipe"))
                 .andExpect(view().name("recette"));
+    }
+
+    @Test
+    public void recetteNotInDb() throws Exception {
+        String id = "56375619d4c603aa4eb412af";
+
+        Mockito.when(recipeService.findById(id)).thenReturn(null);
+
+        mockMvc.perform(get("/recette/" + id))
+                .andExpect(status().is(404));
     }
 }
