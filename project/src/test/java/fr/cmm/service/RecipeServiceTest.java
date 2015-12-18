@@ -58,6 +58,11 @@ public class RecipeServiceTest {
     }
 
     @Test
+    public void findByIdWithInvalidId() {
+        Assert.assertNull(recipeService.findById("123pasvalide456"));
+    }
+
+    @Test
     public void findByQuery() {
         recipeService.save(new Recipe());
         recipeService.save(new Recipe());
@@ -80,6 +85,11 @@ public class RecipeServiceTest {
         pageQuery.setSize(2);
 
         Assert.assertEquals(2, stream(recipeService.findByQuery(pageQuery).spliterator(), false).count());
+    }
+
+    @Test
+    public void countByQuery() {
+
     }
 
     @Test

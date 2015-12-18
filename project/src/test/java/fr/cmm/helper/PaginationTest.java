@@ -42,8 +42,8 @@ public class PaginationTest {
         Pagination pagination = new Pagination();
         pagination.setCount(50);
         pagination.setPageSize(10);
-        pagination.setPageIndex(3);
-        assertEquals( asList(3,4,5), pagination.getPages());
+        pagination.setPageIndex(4);
+        assertEquals( asList(1,2,3,4,5), pagination.getPages());
     }
 
     @Test
@@ -52,7 +52,7 @@ public class PaginationTest {
         pagination.setCount(200);
         pagination.setPageSize(10);
         pagination.setPageIndex(7);
-        assertEquals( asList(3,4,5,6,7,8,9,10,11), pagination.getPages());
+        assertEquals( asList(3,4,5,6,7,8,9,10,11,12), pagination.getPages());
     }
 
 
