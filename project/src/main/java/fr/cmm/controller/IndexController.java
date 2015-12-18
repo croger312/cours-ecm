@@ -35,7 +35,12 @@ public class IndexController {
     @RequestMapping("/recettes")
     public String recettes(SearchForm searchForm, ModelMap model) {
         PageQuery pageQuery = new PageQuery();
-        pageQuery.setIndex(searchForm.getPageIndex() - 1);
+        if (searchForm.getPageIndex() - 1 >= 0) {
+            pageQuery.setIndex(searchForm.getPageIndex() - 1);
+        }
+        else {
+            pageQuery.setIndex(0);
+        }
         pageQuery.setTag(searchForm.getTag());
 
         Pagination pagination = new Pagination();
@@ -45,6 +50,7 @@ public class IndexController {
 
         model.put("recipes", recipeService.findByQuery(pageQuery));
         model.put("pagination", pagination);
+        model.put("searchForm", searchForm);
 
         return "recettes";
     }
