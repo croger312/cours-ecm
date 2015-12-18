@@ -28,6 +28,6 @@
                 </c:forEach>
             </ul>
         </c:if>
-        <p>${allo:replacement(recipe.text}</p>
+        <p>${allo:replacement(recipe.text)}</p>
     </div>
 </div>
